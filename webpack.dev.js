@@ -1,6 +1,6 @@
 const base = require("./webpack.base.js");
 const { merge } = require("webpack-merge");
-const { path } = require("path");
+const path = require("path");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = merge(base,{

@@ -1,6 +1,6 @@
 const base = require("./webpack.base.js");
 const { merge } = require("webpack-merge");
-const { path } = require("path");
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 
