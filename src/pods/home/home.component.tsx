@@ -1,11 +1,19 @@
-import React from "react";
-
+import React, { useState } from "react";
 import {Link} from "react-router-dom";
+import { PodcastEntity } from "./podcastList.vm";
+
+
+interface Props {
+    podcasts:PodcastEntity[];
+}
 
 
 
 
+export const Home = (props:Props) => {
 
-export const Home = () => {
-    return <><Link to="/podcast/1"> Podcast </Link></>
+    const {podcasts} = props;
+    console.log(podcasts);
+
+    return <>Podcast</>
 }
