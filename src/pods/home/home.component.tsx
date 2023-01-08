@@ -2,6 +2,8 @@ import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
 import React, { useState, useEffect } from "react";
 import { SearchBar } from "./components/searchbar/searchbar.component";
 import { PodcastEntity } from "./podcastList.vm";
+import { Card } from "./components/card/card.component";
+import "./home.scss";
 
 interface Props {
     podcasts:PodcastEntity[];
@@ -16,8 +18,11 @@ export const Home = (props:Props) => {
     return (
     <>
     <SearchBar onFilter={onFilter}/>
-    <ul>
-        {podcasts.map( (podcast, index) => <li key={index}>{podcast["im:name"].label}</li>)}
+    <ul className="list">
+        {podcasts.map( (podcast, index) => 
+        <li key={index}>
+            <Card podcast={podcast} />
+        </li>)}
     </ul>
     
     </>

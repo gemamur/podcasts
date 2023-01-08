@@ -16,16 +16,7 @@ module.exports = merge(base,{
           test: /\.scss$/,
           exclude: /node_modules/,
           use: [
-            MiniCssExtractPlugin.loader,
-            {
-              loader: "css-loader",
-              options: {
-                modules: {
-                  exportLocalsConvention: "camelCase",
-                },
-              },
-            },
-            "sass-loader",
+            MiniCssExtractPlugin.loader,"css-loader","sass-loader",
           ],
         },
       ],
