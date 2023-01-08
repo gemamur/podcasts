@@ -1,19 +1,26 @@
-import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
+import React, { useState, useEffect } from "react";
+import { SearchBar } from "./components/searchbar/searchbar.component";
 import { PodcastEntity } from "./podcastList.vm";
-
 
 interface Props {
     podcasts:PodcastEntity[];
+    onFilter: (search:string) => void;
 }
-
-
-
 
 export const Home = (props:Props) => {
 
-    const {podcasts} = props;
-    console.log(podcasts);
+    const {podcasts, onFilter} = props;
+    
 
-    return <>Podcast</>
+    return (
+    <>
+    <SearchBar onFilter={onFilter}/>
+    <ul>
+        {podcasts.map( (podcast, index) => <li key={index}>{podcast["im:name"].label}</li>)}
+    </ul>
+    
+    </>
+    );
+
 }

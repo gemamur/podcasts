@@ -1,8 +1,12 @@
 import React from 'react';
 import { RouterComponent } from '@/core/router';
+import { ListProvider } from './core/listContext/list';
 
-const App: React.FunctionComponent = () => {
-  return <RouterComponent />;
+export const App: React.FunctionComponent = () => {
+  return(
+    <ListProvider>
+      <RouterComponent />
+    </ListProvider>
+  )
+  
 };
-
-export default App;
