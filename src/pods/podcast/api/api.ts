@@ -7,3 +7,9 @@ export const getPodcastDetail = (id:string):Promise<PodcastDetail> => {
     .then(response => JSON.parse(response.data.contents));
 
 }
+
+export const getPodcastXml = () => {
+ return   axios.get("https://mcsorleys.barstoolsports.com/feed/million-dollaz-worth-of-game")
+.then((response) => response.data )
+.catch((error)=> console.log(error));  
+}
