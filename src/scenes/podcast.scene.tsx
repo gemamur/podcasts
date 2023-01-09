@@ -4,7 +4,5 @@ import {PodcastContainer} from "@/pods/podcast"
 
 export const PodcastScene = () => {
 
-    const {id} = useParams();
-    console.log(id);
     return <><PodcastContainer /></>
 }

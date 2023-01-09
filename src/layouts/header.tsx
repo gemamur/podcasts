@@ -1,15 +1,16 @@
+import { switchRoutes } from "@/core/router";
 import React from "react";
+import {Link} from "react-router-dom";
 import "./header.scss";
 
-interface Props {
-    children: React.ReactNode;
-}
 
-export const Header:React.FC<Props> = ({children}) => {
+
+export const Header:React.FC = () => {
     return (
     <>
-    <div className="header">Podcaster</div>
-    {children}
+    <div className="header">
+        <Link to={switchRoutes.root}>Podcaster</Link>
+    </div>
     </>
     );
 }

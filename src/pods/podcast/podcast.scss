@@ -1,0 +1,31 @@
+.podcast{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 4rem;
+    justify-content: center;
+    & img{
+        border-radius: 0;
+        width: 300px;
+    }
+}
+
+.detail{
+    border: 1px solid rgb(212, 212, 212);
+    box-shadow: 0px 3px 8px rgb(168, 168, 168);
+    width: 90%;
+    height: fit-content;
+    display: grid;
+    justify-content: center;
+}
+
+.episodelist{
+    width: 100%;
+    & > .episodetotal{
+        display: grid;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+    & > .episodesdetail{
+        display: grid;
+    }
+}

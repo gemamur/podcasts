@@ -5,7 +5,7 @@ interface SwitchRoutes {
 }
 
 export const switchRoutes: SwitchRoutes = {
-  root: '/',
-  podcast: '/podcast/:id',
-  episode: '/podcast/:id/episode/:idEpisode',
+  root: "/",
+  podcast: "/podcast/:id",
+  episode: "/podcast/:id/episode/:idEpisode",
 };

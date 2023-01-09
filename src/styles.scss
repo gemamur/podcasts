@@ -5,3 +5,12 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:visited{
+        color:inherit;
+    }
+}
