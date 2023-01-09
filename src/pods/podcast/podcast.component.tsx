@@ -26,7 +26,6 @@ export const Podcast = (props:Props) => {
         }
     }, [xmlDetail.length]);
 
-    console.log(description);
     
     return (
     <>
@@ -42,7 +41,7 @@ export const Podcast = (props:Props) => {
 
             <div className="detail-description">
                 <span className="description">Description:</span>
-                <div dangerouslySetInnerHTML={{__html: description}} ></div>
+                <div dangerouslySetInnerHTML={{__html: description.slice(0,-1)}} ></div>
             </div>
             
         </div>
