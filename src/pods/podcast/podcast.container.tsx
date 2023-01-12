@@ -1,10 +1,10 @@
 
 import React, {useState, useEffect} from "react";
-import { getPodcastDetail } from "./api/api";
-import { getPodcastXml } from "./api/api";
+import { getPodcastDetail } from "@/common/podcast/api/api";
+import { getPodcastXml } from "@/common/podcast/api/api";
 import { Podcast } from "./podcast.component";
 import { useParams } from "react-router";
-import { PodcastDetail, createEmptyPodcast } from "./podcastdetail.vm";
+import { PodcastDetail, createEmptyPodcast } from "@/common/podcast/podcastdetail.vm";
 
 
 export const PodcastContainer = () => {
@@ -15,8 +15,13 @@ export const PodcastContainer = () => {
 
     useEffect(()=>{
         getPodcastDetail(id).then(setPodcast);
-        getPodcastXml().then(setXmlDetail);
-    }, []);
+        
+    }, [id]);
+
+    useEffect(()=>{
+        if(podcast.resultCount===1) 
+        getPodcastXml(podcast.results[0].feedUrl).then(setXmlDetail);
+    }, [podcast]);
 
     return( 
     <>

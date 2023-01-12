@@ -8,8 +8,8 @@ export const getPodcastDetail = (id:string):Promise<PodcastDetail> => {
 
 }
 
-export const getPodcastXml = () => {
- return   axios.get("https://mcsorleys.barstoolsports.com/feed/million-dollaz-worth-of-game")
-.then((response) => response.data )
-.catch((error)=> console.log(error));  
+export const getPodcastXml = (url:string):Promise<string> => {
+    return   axios.get(url)
+    .then((response) => response.data )
+    .catch((error)=> console.log(error));  
 }

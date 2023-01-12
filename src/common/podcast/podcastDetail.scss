@@ -1,0 +1,36 @@
+.detail{
+    border: 1px solid rgb(212, 212, 212);
+    box-shadow: 0px 3px 8px rgb(168, 168, 168);
+    width: 90%;
+    height: fit-content;
+    padding: 3rem;
+    
+}
+
+.detail-image{
+    display: grid;
+    justify-content: center;
+}
+
+.detail-data{
+    margin: 2rem 0 1rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    line-height: 10px;
+}
+
+.detail-title{
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.detail-artist{
+    font-style: oblique;
+}
+.detail-description{
+    font-size: small;
+}
+.description{
+    font-weight: bold;
+}
