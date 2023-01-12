@@ -9,7 +9,7 @@ export const getPodcastDetail = (id:string):Promise<PodcastDetail> => {
 }
 
 export const getPodcastXml = (url:string):Promise<string> => {
-    return   axios.get(url)
-    .then((response) => response.data )
+    return   axios.get(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
+    .then((response) => response.data.contents )
     .catch((error)=> console.log(error));  
 }

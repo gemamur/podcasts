@@ -11,7 +11,7 @@ interface Props {
 
 export const Podcast = (props:Props) => {
     const {podcast, xmlDetail} = props;
-    
+    console.log(xmlDetail);
     return (
     <>
     <div className="podcast">

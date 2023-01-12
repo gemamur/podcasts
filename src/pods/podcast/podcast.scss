@@ -44,6 +44,11 @@
             display: grid;
             grid-template-columns: 4fr 1fr 1fr;
             justify-content: left;
+            padding: 1rem 0;
+            
+                &:nth-child(odd) {
+                    background-color: #eee;
+                }
             }
             
         }
