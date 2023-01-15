@@ -1,4 +1,5 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import XMLParser from "react-xml-parser";
 
 interface Props {
@@ -17,6 +18,8 @@ export const PodcastEpisodes =  (props:Props) => {
     const [items, setItems] = useState<PodcastItem[]>([]);
     
     useEffect(()=>{
+        let newItems = [];
+
         if(xmlDetail.length>0){
             var xml = new XMLParser().parseFromString(xmlDetail);
             
@@ -25,7 +28,7 @@ export const PodcastEpisodes =  (props:Props) => {
                 let duration:string;
                 let formatedDate: string;
                 if(item.children.filter(obj=>obj.name=="itunes:duration").length>0){
-                    let timeString: string;
+                    
                     if(item.children.filter(obj=>obj.name=="itunes:duration")[0].value.includes(":")){
                         duration = item.children.filter(obj=> obj.name==="itunes:duration")[0].value;
                     }else{
@@ -39,15 +42,21 @@ export const PodcastEpisodes =  (props:Props) => {
                     }else{
                         formatedDate = "";
                     }
-                setItems(items=>[...items, 
+
+                newItems = [...newItems, {title: item.children.filter(obj=> obj.name==="title")[0].value, 
+                date: formatedDate, 
+                Duration: duration
+                }];
+                /*setItems(items=>[...items, 
                 {title: item.children.filter(obj=> obj.name==="title")[0].value, 
                 date: formatedDate, 
                 Duration: duration
-                }]);
-                console.log(item.children.filter(obj=> obj.name==="pubDate"));
+                }]);*/
+                // console.log(item.children.filter(obj=> obj.name==="pubDate"));
                 // console.log(item.children.filter(obj=>obj.name=="itunes:duration").length);
             });
-            
+           
+            setItems(newItems);
         }
     }, [xmlDetail.length]);
     
@@ -67,7 +76,7 @@ export const PodcastEpisodes =  (props:Props) => {
                         <ul>
                         {items.map((item:any, index) => (
                             <li key={index}>
-                                <div>{item.title}</div>
+                                <div><Link to="/episode/3">{item.title}</Link></div>
                                 <div>{item.date}</div>
                                 <div>{item.Duration}</div>
                             </li>

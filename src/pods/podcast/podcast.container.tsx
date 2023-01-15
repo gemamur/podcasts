@@ -5,37 +5,44 @@ import { Podcast } from "./podcast.component";
 import { useParams } from "react-router";
 import { PodcastDetail, createEmptyPodcast } from "@/common/podcast/podcastdetail.vm";
 import { Base64 } from "js-base64";
+import { XmlContext } from "@/core/xmlContext/xmlContext";
 
 
 export const PodcastContainer = () => {
 
     const [podcast, setPodcast] = useState<PodcastDetail>(createEmptyPodcast());
-    const [xmlDetail, setXmlDetail] = useState<string>("");
     const [xmlTemp, setXmlTemp] = useState<string>("");
     const {id} = useParams();
+    const { xml, setXml } = React.useContext(XmlContext);
+
 
     useEffect(()=>{
+        
         getPodcastDetail(id).then(setPodcast);
         
     }, [id]);
+    
 
     useEffect(()=>{
-        if(podcast.resultCount===1) 
-        getPodcastXml(podcast.results[0].feedUrl).then(setXmlTemp);
+        if(podcast.resultCount===1) {
+            getPodcastXml(podcast.results[0].feedUrl).then(setXmlTemp);
+        }
         
     }, [podcast]);
+
+
     useEffect(()=>{
         if(xmlTemp.includes("base64")){
-            setXmlDetail(Base64.decode(xmlTemp.substring(xmlTemp.indexOf(',')+1)));
+            setXml(Base64.decode(xmlTemp.substring(xmlTemp.indexOf(',')+1)));
             
         }else{
-            setXmlDetail(xmlTemp);
+            setXml(xmlTemp);
         }
     },[xmlTemp]);
-    
+    //console.log(xml);
     return( 
     <>
-        <Podcast podcast={podcast} xmlDetail={xmlDetail} />
+        <Podcast podcast={podcast} xmlDetail={xml} />
     </>
     );
 };

@@ -23,7 +23,7 @@ export const PodcastDetailComponent = (props:Props) => {
             var xml = new XMLParser().parseFromString(xmlDetail);
             setDescription(xml.getElementsByTagName('Description')[0].value);
         }
-    }, [xmlDetail.length]);
+    }, [xmlDetail]);
     
     return (
         <>
